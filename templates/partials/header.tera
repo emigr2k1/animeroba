@@ -1,0 +1,19 @@
+<header>
+    <div id="menu">
+        <div id="header-logo">
+            <a href="#">AnimeRoba</a>
+        </div>
+        <nav>
+            <ul>
+                <a href="#"><li>Explorar</li></a>
+                <a href="#"><li>Géneros</li></a>
+                <a href="#"><li>Esta temporada</li></a>
+            </ul>
+        </nav>
+    </div>
+    <div id="search-bar">
+        <form method="get" action="/search">
+            <input id="search-input" name="search-input" placeholder="Buscar...">
+        </form>
+    </div>
+</header>

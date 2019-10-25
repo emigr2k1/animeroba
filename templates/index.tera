@@ -1,0 +1,7 @@
+{% extends "partials/layout" %}
+
+{% block title %}{{super()}}Inicio{% endblock title %}
+
+{% block content %}
+    <h1>Inicio</h1>
+{% endblock content%}
