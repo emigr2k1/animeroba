@@ -1,1 +1,39 @@
+/* Index */
 
+.anime-card {
+    height: 120px;
+    padding-right: 20px;
+    margin-bottom: 60px;
+}
+
+.anime-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.anime-card .episode-number {
+    background-color: rgba(43, 214, 160, 0.8);
+    width: 50px;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 15px 0 15px 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+.most-watched-banner .uk-overlay {
+    background-color: rgba(43, 214, 160, 0.5);
+    opacity: 0;
+    transition: all 0.1s;
+}
+
+.most-watched-banner .uk-overlay strong {
+    color: #fff;
+}
+
+.most-watched-banner:hover  .uk-overlay {
+    opacity: 1;
+}
