@@ -9,11 +9,14 @@ use rocket_contrib::{serve::StaticFiles, templates::Template};
 mod api;
 mod db;
 
-use api::*;
-
 #[get("/")]
 fn index() -> Template {
     Template::render("index", std::collections::HashMap::<(), ()>::new())
+}
+
+#[get("/explorar")]
+fn browse() -> Template {
+    Template::render("browse", std::collections::HashMap::<(), ()>::new())
 }
 
 #[catch(404)]
@@ -22,6 +25,7 @@ fn not_found() -> content::Html<&'static str> {
 }
 
 fn main() {
+    use api::*;
     rocket::ignite()
         .register(catchers![not_found])
         .attach(Template::fairing())
@@ -30,6 +34,7 @@ fn main() {
             "/",
             routes![
                 index,
+                browse,
                 get_animes,
                 post_anime,
                 get_anime,
