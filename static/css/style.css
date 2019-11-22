@@ -1,39 +1,117 @@
-/* Index */
+:root {
+    --main-color:     rgb(18, 150, 102);
+    --main-color-05: rgba(18, 150, 102, 0.8);
+}
+
+.heading-border {
+    border-bottom: solid 5px var(--main-color);
+    width: auto;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 100% !important;
+    padding: 0 50px;
+}
+
+.main-container {
+    margin-top: 20px;
+}
+
+header  {
+    align-items: baseline !important;
+}
+
+header nav {
+    padding-left: 0 !important;
+}
+
+header .navbar-brand {
+    font-size: 26px;
+}
+
+header nav ul li a {
+    font-size: 17px;
+}
+
+.episode-number {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: var(--main-color);
+    padding: 2px 8px;
+    border-radius: 10px 0 10px 0;
+}
 
 .anime-card {
-    height: 120px;
+    padding-bottom: 10px;
     padding-right: 20px;
-    margin-bottom: 60px;
+    width: 20%;
+}
+
+.anime-card .thumbnail {
+    position: relative;
 }
 
 .anime-card img {
+    border-radius: 3px;
+    width: 100%;
+    height: 110px;
+}
+
+.anime-card a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.anime-card a p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.anime-card a p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.anime-card a:hover p {
+    color: var(--main-color);
+}
+
+.most-watched-banner {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.most-watched-banner a img {
+    width: 100%;
+}
+
+.most-watched-banner a div {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 2px;
-}
-
-.anime-card .episode-number {
-    background-color: rgba(43, 214, 160, 0.8);
-    width: 50px;
-    padding: 0;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    text-align: center;
-    border-radius: 15px 0 15px 0;
-    font-weight: bold;
-    color: #fff;
-}
-
-.most-watched-banner .uk-overlay {
-    background-color: rgba(43, 214, 160, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color-05);
     opacity: 0;
-    transition: all 0.1s;
+    transition: opacity 0.2s;
 }
 
-.most-watched-banner .uk-overlay strong {
-    color: #fff;
+.most-watched-banner a div strong {
+    color: white;
+    font-size: 24px;
 }
 
-.most-watched-banner:hover  .uk-overlay {
+.most-watched-banner:hover div {
     opacity: 1;
 }

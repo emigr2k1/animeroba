@@ -1,23 +1,35 @@
 <header>
-    <div uk-navbar>
-        <div class="uk-navbar-left">
-            <a href="" class="uk-navbar-item uk-logo uk-margin-small-right uk-padding-remove">AnimeRoba</a>
-            <ul class="uk-navbar-nav">
-                <li>
-                    <a href="#">Inicio</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-0">
+        <a class="navbar-brand" href="javascript:void(0)">Anime<span style="color: var(--main-color);">Roba</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="main-navbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
                 </li>
-                <li>
-                    <a href="#">Explorar</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explorar</a>
                 </li>
-                <li>
-                    <a href="#">Esta temporada</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Esta temporada</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Géneros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Acción</a>
+                        <a class="dropdown-item" href="#">Deportes</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Hentai</a>
+                    </div>
                 </li>
             </ul>
-        </div>
-        <div class="uk-navbar-right uk-navbar-item">
-            <form>
-                <input class="uk-input" placeholder="Explora... " />
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Explora... " />
             </form>
         </div>
-    </div>
+    </nav>
 </header>

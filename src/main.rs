@@ -4,10 +4,12 @@
 extern crate rocket;
 
 use rocket::response::content;
-use rocket_contrib::{
-    templates::Template,
-    serve::StaticFiles,
-};
+use rocket_contrib::{serve::StaticFiles, templates::Template};
+
+mod api;
+mod db;
+
+use api::*;
 
 #[get("/")]
 fn index() -> Template {
@@ -23,7 +25,22 @@ fn main() {
     rocket::ignite()
         .register(catchers![not_found])
         .attach(Template::fairing())
-        .mount("/", routes![index])
-        .mount("/static", StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/static")))
+        .attach(db::Db::fairing())
+        .mount(
+            "/",
+            routes![
+                index,
+                get_animes,
+                post_anime,
+                get_anime,
+                put_anime,
+                post_anime_episode,
+                get_anime_episode,
+            ],
+        )
+        .mount(
+            "/static",
+            StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),
+        )
         .launch();
 }

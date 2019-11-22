@@ -1,2 +1,6 @@
 [global]
 template_dir = "templates/"
+address = "192.168.100.5"
+
+[global.databases]
+mongo_db = { url = "mongodb://localhost:27017/animes" }

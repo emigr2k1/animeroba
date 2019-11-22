@@ -3,101 +3,230 @@
 {% block title %}{{super()}}Inicio{% endblock title %}
 
 {% block content %}
-    <div uk-grid>
-        <div class="uk-width-2-3 uk-flex uk-flex-wrap">
-            <h2 class="uk-width-1-1">Últimos episodios</h2>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">16</div>
+    <div class="main-container row">
+        <div class="last-episodes-cont col-md-9 col-sm-12">
+            <h5 class="heading-border">Últimos episodios</h5>
+            <div class="last-episodes d-flex flex-wrap">
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Vinland Saga</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3203.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Fairy Gone 2nd Season</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3202.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Keishichou Tokumubu Tokushu</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/7.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">908</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">One piece</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3221.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">3</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Sword Art Online: Alicization</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3220.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">3</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Boku no Hero Academia: 4th season</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3201.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Kono oto Tomare! 2nd season</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3199.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Fate/Grand Order: Zero</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">16</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Vinland Saga</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3203.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Fairy Gone 2nd Season</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/3202.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">4</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">Keishichou Tokumubu Tokushu</p>
-            </div>
-            <div class="uk-width-1-4 anime-card">
-                <div class="uk-inline uk-width-1-1 uk-height-1-1">
-                    <img data-src="https://animeflv.net/uploads/animes/thumbs/7.jpg" alt="Kono oto Tomare!" uk-img />
-                    <div class="episode-number uk-overlay uk-position-bottom uk-overlay-small">908</div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
                 </div>
-                <p class="uk-text-truncate uk-margin-small-top">One piece</p>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
+                </div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
+                </div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                915
+                            </div>
+                        </div>
+                        <p>One piece</p>
+                    </a>
+                </div>
+                <div class="anime-card">
+                    <a href="javascript:void(0)">
+                        <div class="thumbnail">
+                            <img src="https://animeflv.net/uploads/animes/thumbs/3162.jpg" alt="Kono oto Tomare!" />
+                            <div class="episode-number">
+                                16
+                            </div>
+                        </div>
+                        <p>Vinland Saga dsadjasdlkasjdlksajdlkjsakld</p>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="uk-width-1-3">
-            <h2>Más vistos</h2>
-            <div class="uk-inline uk-width-1-1 most-watched-banner">
-                <img data-src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/05/Cr%C3%ADtica-de-Kimetsu-no-Yaiba-destacada-el-palomitron.jpg?fit=1000%2C527&ssl=1" uk-img/>
-                <div class="uk-overlay uk-position-cover uk-flex uk-flex-center uk-flex-middle">
-                    <strong class="uk-text-large">Kimetsu no Yaiba!</strong>
-                </div>
+
+        <div class="most-watched col-md-3 col-sm-12">
+            <h5 class="heading-border">Más vistos</h5>
+            <div class="most-watched-banner">
+                <a href="javascript:void(0)">
+                    <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/05/Cr%C3%ADtica-de-Kimetsu-no-Yaiba-destacada-el-palomitron.jpg?fit=1000%2C527&ssl=1" />
+                    <div>
+                        <strong>Kimetsu no Yaiba!</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="most-watched-banner">
+                <a href="javascript:void(0)">
+                    <img src="https://i.pinimg.com/originals/85/22/3e/85223e5b7ff909adf6add13d89eb9808.jpg" />
+                    <div>
+                        <strong>Naruto Shippuden</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="most-watched-banner">
+                <a href="javascript:void(0)">
+                    <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/05/Cr%C3%ADtica-de-Kimetsu-no-Yaiba-destacada-el-palomitron.jpg?fit=1000%2C527&ssl=1" />
+                    <div>
+                        <strong>Kimetsu no Yaiba!</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="most-watched-banner">
+                <a href="javascript:void(0)">
+                    <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/05/Cr%C3%ADtica-de-Kimetsu-no-Yaiba-destacada-el-palomitron.jpg?fit=1000%2C527&ssl=1" />
+                    <div>
+                        <strong>Kimetsu no Yaiba!</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="most-watched-banner">
+                <a href="javascript:void(0)">
+                    <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/05/Cr%C3%ADtica-de-Kimetsu-no-Yaiba-destacada-el-palomitron.jpg?fit=1000%2C527&ssl=1" />
+                    <div>
+                        <strong>Kimetsu no Yaiba!</strong>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
