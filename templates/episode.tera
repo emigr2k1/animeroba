@@ -1,0 +1,18 @@
+{% extends "partials/layout" %}
+
+{% block title %}{{super()}}Inicio{% endblock title %}
+
+{% block content %}
+    <div class="episode-cont">
+        <div class="server-selector">
+            <ul>
+                <li><button>Fembed</button></li>
+                <li><button>YourUpload</button></li>
+                <li><button>Netu</button></li>
+                <li><button>Mega</button></li>
+            </ul>
+        </div>
+        <div class="episode-player">
+        </div>
+    </div>
+{% endblock content %}

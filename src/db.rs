@@ -1,5 +1,8 @@
-use rocket_contrib::database;
-use rocket_contrib::databases::mongodb;
+use postgres::Connection;
+use rocket_contrib::{database, databases::mongodb::db::Database};
 
 #[database("mongo_db")]
-pub struct Db(mongodb::db::Database);
+pub struct MongoDb(Database);
+
+#[database("postgres_db")]
+pub struct PostgresDb(Connection);

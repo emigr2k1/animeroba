@@ -6,8 +6,9 @@ extern crate rocket;
 use rocket::response::content;
 use rocket_contrib::{serve::StaticFiles, templates::Template};
 
-mod api;
+mod controllers;
 mod db;
+mod models;
 
 #[get("/")]
 fn index() -> Template {
@@ -25,11 +26,12 @@ fn not_found() -> content::Html<&'static str> {
 }
 
 fn main() {
-    use api::*;
+    use controllers::api::*;
     rocket::ignite()
         .register(catchers![not_found])
         .attach(Template::fairing())
-        .attach(db::Db::fairing())
+        .attach(db::MongoDb::fairing())
+        .attach(db::PostgresDb::fairing())
         .mount(
             "/",
             routes![
@@ -38,8 +40,6 @@ fn main() {
                 get_animes,
                 post_anime,
                 get_anime,
-                put_anime,
-                post_anime_episode,
                 get_anime_episode,
             ],
         )

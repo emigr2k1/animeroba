@@ -1,0 +1,8 @@
+[tasks.watch-sass]
+command = "sass"
+args = ["--watch", "prestatic/sass/:static/css/"]
+
+[tasks.watch]
+run_task = [
+	{ name = ["watch-sass"], parallel = true }
+]

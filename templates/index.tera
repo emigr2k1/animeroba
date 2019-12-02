@@ -2,6 +2,7 @@
 
 {% block title %}{{super()}}Inicio{% endblock title %}
 
+{% block body_class %}"index"{% endblock body_class %}
 {% block content %}
     <div class="main-container row">
         <div class="last-episodes-cont col-md-9 col-sm-12">
