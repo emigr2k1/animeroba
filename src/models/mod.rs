@@ -1,5 +1,4 @@
 mod anime;
-mod db_utils;
 mod episode;
 mod server;
 

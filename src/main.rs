@@ -3,12 +3,16 @@
 #[macro_use]
 extern crate rocket;
 
+#[macro_use]
+extern crate diesel;
+
 use rocket::response::content;
 use rocket_contrib::{serve::StaticFiles, templates::Template};
 
 mod controllers;
 mod db;
 mod models;
+mod schema;
 
 #[get("/")]
 fn index() -> Template {
@@ -38,9 +42,9 @@ fn main() {
                 index,
                 browse,
                 get_animes,
-                post_anime,
                 get_anime,
                 get_anime_episode,
+                //post_anime,
             ],
         )
         .mount(
