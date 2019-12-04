@@ -11,7 +11,7 @@ CREATE TABLE public.video_servers
         REFERENCES public.episodes (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 ALTER SEQUENCE video_servers_id_seq
 OWNED BY public.video_servers.id;
