@@ -2,7 +2,11 @@
 command = "sass"
 args = ["--watch", "prestatic/sass/:static/css/"]
 
+[tasks.livereload]
+command = "livereload"
+args = ["templates, static", "-ee", "tera, css"]
+
 [tasks.watch]
 run_task = [
-	{ name = ["watch-sass"], parallel = true }
+	{ name = ["watch-sass", "livereload"], parallel = true }
 ]

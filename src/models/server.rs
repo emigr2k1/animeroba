@@ -5,7 +5,7 @@ use std::error::Error;
 use crate::db::PostgresDb;
 use crate::schema::video_servers as dsl;
 
-#[derive(Debug, Serialize, Deserialize, Queryable)]
+#[derive(Serialize, Deserialize, Queryable)]
 pub struct Server {
     pub id: i32,
     pub name: String,

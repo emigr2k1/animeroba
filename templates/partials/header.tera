@@ -1,16 +1,16 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-0">
-        <a class="navbar-brand" href="javascript:void(0)">Anime<span style="color: var(--main-color);">Roba</span></a>
+        <a class="navbar-brand" href="/">Anime<span style="color: var(--main-color);">Roba</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="main-navbar" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Explorar</a>
+                    <a class="nav-link" href="/explorar">Explorar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Esta temporada</a>

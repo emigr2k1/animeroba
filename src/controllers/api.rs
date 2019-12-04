@@ -28,8 +28,9 @@ pub fn get_anime_episode(
     let anime = Anime::from_code_name(&db, &code_name).map_err(|_| Status::NotFound)?;
     let episode =
         Episode::from_number(&db, anime.id, episode as i32).map_err(|_| Status::NotFound)?;
-    let servers =
-        episode.servers(&db).map_err(|_| Status::InternalServerError)?;
+    let servers = episode
+        .servers(&db)
+        .map_err(|_| Status::InternalServerError)?;
     Ok(Json((anime, episode, servers)))
 }
 

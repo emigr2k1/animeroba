@@ -1,11 +1,35 @@
-$main-color: rgb(18, 150, 102);
+$body-bg: #141414;
+$primary-green: rgb(18, 150, 102);
+$secondary-bg: #222222;
+$light-secondary-bg: #3E3E3E;
+$warning-color: #EBDE38;
+$danger-color: #A52020;
+$secondary-fg: #6C6C6C;
+$pressed-on-sec-bg: #191919;
+$primary-fg: #9F9F9F;
+$primary-bg: #141414;
+$secondary-bg: #222222;
 
-@function main-color-op($opacity) {
-    @return rgba($main-color, $opacity);
+@import 'bootstrap/bs_variables';
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/bootswatch';
+
+@function primary-green-op($opacity) {
+    @return rgba($primary-green, $opacity);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $primary-bg;
 }
 
 .heading-border {
-    border-bottom: solid 5px $main-color;
+    border-bottom: solid 5px $primary-green;
     width: auto;
     display: inline-block;
     margin-bottom: 25px;
@@ -21,6 +45,7 @@ header  {
     align-items: baseline !important;
 
     nav {
+        background-color: $primary-bg !important;
         padding-left: 0 !important;
 
         ul li a {
@@ -33,6 +58,40 @@ header  {
     }
 }
 
+
+.anime-card {
+    padding-bottom: 10px;
+    padding-right: 20px;
+    width: 20%;
+
+    img {
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        height: 110px;
+    }
+
+    .thumbnail {
+        position: relative;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+
+        p {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        &:hover p {
+            color: $primary-green;
+        }
+    }
+}
+
 body.index {
     .main-container {
         margin-top: 20px;
@@ -42,45 +101,9 @@ body.index {
         position: absolute;
         left: 0px;
         bottom: 0px;
-        background-color: $main-color;
+        background-color: $primary-green;
         padding: 2px 8px;
         border-radius: 10px 0 10px 0;
-    }
-
-    .anime-card {
-        padding-bottom: 10px;
-        padding-right: 20px;
-        width: 20%;
-    }
-
-    .anime-card .thumbnail {
-        position: relative;
-    }
-
-    .anime-card img {
-        border-radius: 3px;
-        width: 100%;
-        height: 110px;
-    }
-
-    .anime-card a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .anime-card a p {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    .anime-card a p {
-        margin-top: 10px;
-        font-size: 16px;
-    }
-
-    .anime-card a:hover p {
-        color: $main-color;
     }
 
     .most-watched-banner {
@@ -104,7 +127,7 @@ body.index {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: main-color-op(0.8);
+        background-color: primary-green-op(0.8);
         opacity: 0;
         transition: opacity 0.2s;
     }
@@ -116,5 +139,209 @@ body.index {
 
     .most-watched-banner:hover div {
         opacity: 1;
+    }
+}
+
+body.anime {
+    .anime-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        border-bottom: solid 5px $primary-green;
+
+        .banner-overlay {
+            width: 100%;
+            position: relative;
+            height: 100%;
+
+            img, .overlay {
+                width: 100%;
+                position: absolute;
+            }
+
+            img {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .overlay {
+                background-color: rgba(black, 0.85);
+                height: 100%;
+            }
+        }
+
+        h1 {
+            position: absolute;
+        }
+    }
+
+    .anime-details {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+
+        .anime-episodes {
+            margin-right: 50px;
+            width: 70%;
+            max-height: 600px;
+            overflow-y: auto;
+            border: solid 2px $secondary-bg;
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                margin: 0;
+                li {
+                    width: (100% / 6);
+                    list-style: none;
+                    border-bottom: solid 1px $secondary-bg;
+                    border-right: solid 1px $secondary-bg;
+                    padding-left: 10px;
+                    &:hover {
+                        background-color: $secondary-bg;
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                    a {
+                        display: flex;
+                        width: 100%;
+                        color: white;
+                        padding: 10px 3px;
+                        align-items: center;
+
+                        .arrow-episode {
+                            display: inline-block;
+                            background-color: $primary-green;
+                            border-radius: 50%;
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 5px;
+                            position: relative;
+
+                            &:after {
+                                content: "";
+                                width: 0;
+                                height: 0;
+                                border-top: 4px solid transparent;
+                                border-left: 6px solid white;
+                                border-bottom: 4px solid transparent;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .anime-info {
+            width: 30%;
+
+            .basic-info {
+                color: white;
+                //margin-top: 10px;
+
+                .vertical-sep {
+                    color: $primary-fg;
+                }
+            }
+
+            .anime-synopsis {
+                margin-top: 5px;
+            }
+
+            .anime-genres {
+                margin: 5px 0;
+
+                a {
+                    padding: 5px 13px;
+                    margin: 8px 10px 0 0;
+                    display: inline-block;
+                    background-color: $secondary-bg;
+                    color: white;
+                    border-radius: 15px;
+                    transition: all 0.1s linear;
+                    &:hover {
+                        text-decoration: none;
+                        background-color: $primary-green;
+                    }
+                }
+            }
+
+            .anime-chrono {
+                margin-top: 20px;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        a {
+                            color: $secondary-fg;
+                            &:hover {
+                                color: lighten($primary-green, 10);
+                            }
+                            &.current-anime {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.browse {
+    .container h5 {
+        margin-top: 10px;
+    }
+
+    .anime-card {
+        width: (100% / 6);
+    }
+
+    .filter-container {
+        form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .filter-group {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+                background-color: $secondary-bg;
+                border-radius: 15px;
+                padding: 5px 15px;
+                color: white;
+
+                label {
+                    margin-bottom: 0;
+                    margin-right: 8px;
+                    padding: 0;
+                }
+            }
+
+            input[type="submit"] {
+                padding: 5px 10px;
+                border-radius: 15px;
+                border: none;
+                background-color: $secondary-bg;
+                color: white;
+            }
+        }
+    }
+
+    .animes {
+        margin-top: 30px;
     }
 }

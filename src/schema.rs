@@ -10,6 +10,7 @@ table! {
         cover -> Nullable<Text>,
         status -> Int4,
         genres -> Array<Int4>,
+        banner -> Nullable<Text>,
     }
 }
 
@@ -33,8 +34,4 @@ table! {
 joinable!(episodes -> animes (anime_id));
 joinable!(video_servers -> episodes (episode_id));
 
-allow_tables_to_appear_in_same_query!(
-    animes,
-    episodes,
-    video_servers,
-);
+allow_tables_to_appear_in_same_query!(animes, episodes, video_servers,);

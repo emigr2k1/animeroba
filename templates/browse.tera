@@ -1,110 +1,62 @@
 {% extends "partials/layout" %}
-{% block title %}{{super()}}Explorar{% endblock title %}
+{% block title %}Explorar{% endblock title %}
+
+{% block body_class %}browse{% endblock body_class %}
 
 {% block content %}
-    <!-- Código -->
-    <link rel="stylesheet" href="/static/css/browse.css" media="all">
-    <div class="main-container row">
-        <div class="animes-cont col-12">
-            <h5 class="heading-border">Últimos episodios</h5>
-            <div class="animes d-flex flex-wrap">
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
+    <div class="container">
+        <h5 class="heading-border">Explorar</h5>
+        <div class="filter-container">
+            <form>
+                <div class="filter-group">
+                    <label for="genre-select">Género: </label>
+                    <select id="genre-select" class="filter-select">
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                    </select>
                 </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
+                <div class="filter-group">
+                    <label for="year-select">Año: </label>
+                    <select id="year-select" class="filter-select">
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                    </select>
                 </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
+                <div class="filter-group">
+                    <label for="kind-select">Tipo: </label>
+                    <select id="kind-select" class="filter-select">
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                    </select>
                 </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
+                <div class="filter-group">
+                    <label for="status-select">Estado: </label>
+                    <select id="status-select" class="filter-select">
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                    </select>
                 </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
+                <div class="filter-group">
+                    <label for="order-select">Orden: </label>
+                    <select id="order-select" class="filter-select">
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                    </select>
                 </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
-                <div class="anime-card">
-                    <a href="javascript:void(0)">
-                        <div class="thumbnail">
-                            <img src="https://columnacero.com/img/29362/one-piece-el-arco-de-wano-comienza-en-julio-se-anuncia-la-animacion-de-toei.jpg" alt="Kono oto Tomare!" />
-                        </div>
-                        <p>One piece</p>
-                    </a>
-                </div>
+                <input type="submit" value="Filtrar">
+            </form>
+        </div>
+        <div class="animes d-flex flex-wrap">
+            {% for anime in animes %}
+            <div class="anime-card">
+                <a href="/anime/{{anime.code_name}}">
+                    <div class="thumbnail">
+                        <img src="{{anime.cover}}" alt="{{anime.name}}" />
+                    </div>
+                    <p>{{anime.name}}</p>
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}

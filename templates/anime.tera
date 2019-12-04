@@ -1,0 +1,63 @@
+{% extends "partials/layout" %}
+
+{% block title %}{{anime.name}}{% endblock title %}
+{% block body_class %}anime{% endblock body_class %}
+
+{% block content %}
+<div class="anime-banner">
+    <div class="banner-overlay">
+        <img src="{{anime.banner}}" title="{{anime.name}} alt="{{anime.name}} banner">
+        <div class="overlay"></div>
+    </div>
+    <h1>{{anime.name}}</h1>
+</div>
+<main class="container">
+<div class="anime-details">
+    <div class="anime-episodes">
+        <ul class="list-episodes">
+        {% for i in range(start=1, end=num_episodes+1) | reverse %}
+        <li>
+            <a href="/anime/{{anime.code_name}}/{{i}}">
+                <span class="arrow-episode"></span>Episodio {{i}}
+            </a>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="anime-info">
+        <div class="basic-info">
+            {% if anime.kind == 0 %}Anime
+            {% elif anime.kind == 1 %}Película
+            {% elif anime.kind == 2 %}OVA
+            {% elif anime.kind == 3 %}ONA
+            {% endif %}
+
+            <span class="vertical-sep">|</span>
+
+            {% if anime.status == 0 %}Finalizado
+            {% elif anime.status == 1 %}En emisión
+            {% endif %}
+            <span class="vertical-sep">|</span>
+            {{ anime.release_date }}
+        </div>
+        <div class="anime-synopsis">
+            {{anime.synopsis}}
+        </div>
+        <div class="anime-genres">
+            {% for genre in genres_str %}
+            <a href="/explorar/genero/{{genre | slugify}}" class="genre-button">{{genre}}</a>
+            {% endfor %}
+        </div>
+        <div class="anime-chrono">
+            <strong>Orden cronológico de emisión:</strong>
+            <ul>
+                <li><a href="#">One Piece - La precuela</a></li>
+                <li><a href="#">One Piece - El Origen</a></li>
+                <li><a href="#" class="current-anime">One Piece</a></li>
+                <li><a href="#">One Piece - Desenlace</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock content %}

@@ -12,6 +12,7 @@ CREATE TABLE public.animes
     cover text COLLATE pg_catalog."default",
     status integer NOT NULL,
     genres integer[] NOT NULL,
+    banner text COLLATE pg_catalog."default",
     CONSTRAINT animes_pkey PRIMARY KEY (id),
     CONSTRAINT code_name UNIQUE (code_name)
 );

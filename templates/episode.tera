@@ -1,18 +1,8 @@
 {% extends "partials/layout" %}
 
-{% block title %}{{super()}}Inicio{% endblock title %}
+{% block title %}Ep. {{ep.number}} {{anime.name}}{% endblock title %}
+{% block body_class %}anime-episode{% endblock %}
 
 {% block content %}
-    <div class="episode-cont">
-        <div class="server-selector">
-            <ul>
-                <li><button>Fembed</button></li>
-                <li><button>YourUpload</button></li>
-                <li><button>Netu</button></li>
-                <li><button>Mega</button></li>
-            </ul>
-        </div>
-        <div class="episode-player">
-        </div>
-    </div>
+
 {% endblock content %}
