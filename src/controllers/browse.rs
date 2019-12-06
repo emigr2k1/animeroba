@@ -1,11 +1,15 @@
 use rocket::http::Status;
-use rocket_contrib::templates::{Template, tera::Context};
+use rocket_contrib::templates::{tera::Context, Template};
 
 use crate::db::PostgresDb;
 use crate::models::Anime;
 
 #[get("/explorar?<page>&<quantity>")]
-pub fn browse(db: PostgresDb, page: Option<u32>, quantity: Option<u32>) -> Result<Template, Status> {
+pub fn browse(
+    db: PostgresDb,
+    page: Option<u32>,
+    quantity: Option<u32>,
+) -> Result<Template, Status> {
     let page = page.unwrap_or(1);
     let quantity = quantity.unwrap_or(48);
     let animes =

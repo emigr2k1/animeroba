@@ -16,3 +16,8 @@ pub fn get_anime(db: PostgresDb, code_name: String) -> Result<Template, Status> 
     context.insert("genres_str", &anime.genres_str());
     Ok(Template::render("anime", context))
 }
+
+#[get("/anime/<code_name>/<episode_num>")]
+pub fn get_episode(db: PostgresDb, code_name: String, episode_num: u64) -> Result<Template, Status> {
+    Ok(Template::render("episode", Context::new()))
+}

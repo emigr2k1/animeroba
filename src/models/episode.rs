@@ -1,7 +1,7 @@
 use diesel::prelude::*;
 use serde::{Deserialize, Serialize};
-use std::error::Error;
 use std::convert::TryInto;
+use std::error::Error;
 
 use super::{Anime, Server};
 use crate::db::PostgresDb;

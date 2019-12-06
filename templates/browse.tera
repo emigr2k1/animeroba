@@ -9,38 +9,37 @@
         <div class="filter-container">
             <form>
                 <div class="filter-group">
-                    <label for="genre-select">Género: </label>
-                    <select id="genre-select" class="filter-select">
-                        <option>Acción</option>
-                        <option>Aventura</option>
+                    <label for="genre-select">Género </label>
+                    <select id="genre-select" class="filter-select" multiple name="genres">
+                        <option selected>Acción</option>
+                        {% for i in range(start=1, end=20) %}
+                            <option>Aventura</option>
+                            <option>Acción</option>
+                        {% endfor %}
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="year-select">Año: </label>
-                    <select id="year-select" class="filter-select">
-                        <option>Acción</option>
-                        <option>Aventura</option>
+                <div class="filter-group column">
+                    <label for="kind-select">Tipo </label>
+                    <select id="kind-select" class="filter-select" multiple name="kind">
+                        <option selected>Anime</option>
+                        <option>Película</option>
+                        <option>OVA</option>
+                        <option>ONA</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="kind-select">Tipo: </label>
-                    <select id="kind-select" class="filter-select">
-                        <option>Acción</option>
-                        <option>Aventura</option>
+                <div class="filter-group column">
+                    <label for="status-select">Estado </label>
+                    <select id="status-select" class="filter-select" name="status">
+                        <option selected>En emisión</option>
+                        <option>Finalizado</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="status-select">Estado: </label>
-                    <select id="status-select" class="filter-select">
-                        <option>Acción</option>
-                        <option>Aventura</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="order-select">Orden: </label>
-                    <select id="order-select" class="filter-select">
-                        <option>Acción</option>
-                        <option>Aventura</option>
+                <div class="filter-group column">
+                    <label for="order-select">Orden </label>
+                    <select id="order-select" class="filter-select" name="order">
+                        <option selected>Calificación</option>
+                        <option>Alfabéticamente</option>
+                        <option>Fecha de subida</option>
                     </select>
                 </div>
                 <input type="submit" value="Filtrar">
@@ -58,5 +57,30 @@
             </div>
             {% endfor %}
         </div>
+        <div class="pagination">
+            <ul>
+                <li><a href="javascript:void(0)" class="previous">«</a></li>
+                {% for i in range(start=1, end=10) %}
+                    <li><a href="/explorar?page={{i}}&quantity=48">{{i}}</a></li>
+                {% endfor %}
+                <li><a class="disabled">...</a></li>
+                    <li><a href="/explorar?page=50&quantity=48">50</a></li>
+                <li><a href="javascript:void(0)" class="next">»</a></li>
+            </ul>
+        </div>
     </div>
 {% endblock content %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/selectric@1.13.0/public/jquery.selectric.min.js"></script>
+<script>
+    $(".filter-select").selectric({
+        responsive: true,
+        expandToItemText: true,
+        maxHeight: 500,
+        disableOnMobile: true,
+        multiple: {
+            maxLabelEntries: 4
+        }
+    });
+</script>
+{% endblock scripts %}

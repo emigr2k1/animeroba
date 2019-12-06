@@ -29,6 +29,7 @@ fn main() {
                 home::index,
                 browse::browse,
                 anime::get_anime,
+                anime::get_episode,
                 //post_anime,
             ],
         )

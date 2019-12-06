@@ -1,18 +1,12 @@
-$body-bg: #141414;
 $primary-green: rgb(18, 150, 102);
 $secondary-bg: #222222;
 $light-secondary-bg: #3E3E3E;
-$warning-color: #EBDE38;
 $danger-color: #A52020;
-$secondary-fg: #6C6C6C;
 $pressed-on-sec-bg: #191919;
-$primary-fg: #9F9F9F;
+$secondary-fg: #888;
+$primary-fg: #C8C8C8;
 $primary-bg: #141414;
-$secondary-bg: #222222;
-
-@import 'bootstrap/bs_variables';
-@import 'bootstrap/bootstrap';
-@import 'bootstrap/bootswatch';
+$disabled: #323232;
 
 @function primary-green-op($opacity) {
     @return rgba($primary-green, $opacity);
@@ -22,6 +16,7 @@ $secondary-bg: #222222;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Helvetica Neue;
 }
 
 body {
@@ -58,6 +53,9 @@ header  {
     }
 }
 
+.alert a {
+    color: $danger-color;
+}
 
 .anime-card {
     padding-bottom: 10px;
@@ -305,37 +303,105 @@ body.browse {
         margin-top: 10px;
     }
 
-    .anime-card {
-        width: (100% / 6);
-    }
-
     .filter-container {
         form {
             width: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
 
             .filter-group {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
                 margin-right: 20px;
-                background-color: $secondary-bg;
-                border-radius: 15px;
-                padding: 5px 15px;
                 color: white;
 
                 label {
-                    margin-bottom: 0;
-                    margin-right: 8px;
+                    margin: 0 8px 0 5px;
                     padding: 0;
+                    color: $primary-fg;
+                }
+
+                .selectric-wrapper {
+                    position: relative;
+                    z-index: 10;
+                    .selectric-hide-select {
+                        display: none;
+                    }
+                    .selectric {
+                        cursor: pointer;
+                        .label {
+                            margin: 0;
+                            height: inherit;
+                            line-height: normal;
+                            margin-right: 8px;
+                        }
+
+                        .button {
+                            color: $primary-green;
+                            //font-size: 18px;
+                        }
+                    }
+                    .selectric-items {
+                        display: none;
+                        position: absolute;
+                        left: 0;
+                        top: 100%;
+                        margin-top: 5px;
+                        max-width: 120px*5;
+                        ul {
+                            display: block;
+                            margin-bottom: 0;
+                            width: 100%;
+                            li {
+                                display: inline-block;
+                                text-align: center;
+                                width: 120px;
+                                padding: 10px;
+                                list-style: none;
+                                cursor: pointer;
+                                &:hover {
+                                    background-color: $pressed-on-sec-bg;
+                                }
+                                &.selected {
+                                    color: $primary-green;
+                                    background-color: $pressed-on-sec-bg;
+                                }
+                            }
+                        }
+                    }
+                    .selectric-input {
+                        display: none;
+                    }
+                    &.selectric-open {
+                        .selectric-items {
+                            display: block;
+                        }
+                    }
+                }
+
+                &.column {
+                    .selectric-items {
+                        width: auto;
+                        ul li {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
                 }
             }
 
-            input[type="submit"] {
-                padding: 5px 10px;
-                border-radius: 15px;
-                border: none;
+            .selectric, .selectric-items, input[type="submit"] {
+                border-radius: 3px;
                 background-color: $secondary-bg;
+            }
+
+            .selectric, input[type="submit"] {
+                padding: 5px 12px;
+            }
+
+            input[type="submit"] {
+                border: none;
                 color: white;
             }
         }
@@ -343,5 +409,262 @@ body.browse {
 
     .animes {
         margin-top: 30px;
+
+        .anime-card {
+            width: (100% / 6);
+        }
+    }
+
+    .pagination {
+        ul {
+            display: flex;
+            li {
+                list-style: none;
+                a {
+                    background-color: $secondary-bg;
+                    display: inline-block;
+                    color: white;
+                    padding: 5px 12px;
+                    &:hover {
+                        background-color: $pressed-on-sec-bg;
+                    }
+                    &.previous {
+                        border-radius: 17px 0 0 17px;
+                    }
+                    &.next {
+                        border-radius: 0 17px 17px 0;
+                    }
+                    &.disabled {
+                        color: $secondary-fg;
+                        background-color: $disabled;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.anime-episode {
+    .episode-title {
+        font-size: 30px;
+        font-weight: 300;
+        margin-top: 20px;
+        strong {
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    .video-container {
+        width: 100%;
+        margin-top: 20px;
+
+        ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+
+            li {
+                display: inline-block;
+                border-bottom: solid 2px darken($primary-green, 15%);
+                a {
+                    text-align: center;
+                    font-weight: 500;
+                    text-decoration: none;
+                    color: $primary-fg;
+                    display: inline-block;
+                    padding-right: 10px;
+                    padding-bottom: 5px;
+                }
+                &.active {
+                    border-bottom: solid 2px $primary-green;
+                    a {
+                        color: white;
+                    }
+                }
+                &:hover {
+                    border-bottom: solid 2px darken($primary-green, 5%);
+                }
+            }
+        }
+        .video-player {
+            display: flex;
+            .iframe-protect {
+                width: 100%;
+                max-width: 960px;
+                .iframe-container {
+                    padding-bottom: 56.25%;
+                    position: relative;
+                    height: 0;
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    section.comments {
+        h5 {
+            margin-top: 40px;
+        }
+
+        .comment-form-box {
+            .user-info {
+                display: flex;
+                align-items: flex-end;
+
+                img {
+                    width: 47px;
+                    height: 47px;
+                    border-radius: 50%;
+                    border: solid 2px #aaa;
+                }
+
+                .name-nick {
+                    margin-left: 10px;
+                    .name {
+                        color: white;
+                        font-size: 16px;
+                    }
+                    .nick {
+                        font-size: 13px;
+                    }
+                }
+            }
+            form {
+                margin-top: 10px;
+                background-color: $secondary-bg;
+                border-radius: 5px 5px 5px 5px;
+                overflow: hidden;
+                .comment-input {
+                    padding: 12px;
+                    min-height: 80px;
+                    border-radius: 5px 5px 0 0;
+                    font-weight: 500;
+                    font-size: 16px;
+                    overflow: auto;
+                    .placeholder {
+                        color: $secondary-fg;
+                    }
+                }
+                .toolbar {
+                    display: flex;
+                    border-radius: 0 0 5px 5px;
+                    justify-content: space-between;
+                    .tools {
+                        display: flex;
+                        button {
+                            background-color: transparent;
+                            border: none;
+                            padding: 5px 15px;
+                            margin: 0;
+                            color: $secondary-fg;
+                            &:hover {
+                                background-color: $pressed-on-sec-bg;
+                                color: $primary-fg;
+                            }
+                        }
+                    }
+                    input[type="submit"] {
+                        background-color: $primary-green;
+                        border: none;
+                        padding: 5px 40px;
+                        color: white;
+                        font-weight: 500;
+                        &:hover {
+                            background-color: darken($primary-green, 5%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .comment {
+            margin-top: 30px;
+            display: flex;
+            .left-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 60%;
+                }
+                .vertical-line {
+                    margin-top: 10px;
+                    width: 3px;
+                    height: 100%;
+                    background-color: $primary-green;
+                    border-radius: 2px;
+                }
+            }
+
+            .right-box {
+                margin-left: 10px;
+
+                .name-nick {
+                    display: flex;
+                    flex-direction: column;
+                    .name {
+                        color: $primary-fg;
+                        font-size: 16px;
+                    }
+
+                    .nick {
+                        color: $secondary-fg;
+                    }
+                }
+
+                .content {
+                    color: $primary-fg;
+                    margin-top: 7px;
+                    a {
+                        color: $primary-green;
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    margin-top: 10px;
+                    .arrow {
+                        .vote-arrow {
+                            stroke: $primary-fg;
+                        }
+                        &.active {
+                            .vote-arrow {
+                                stroke: $primary-green;
+                            }
+                        }
+                    }
+
+                    .vote-count {
+                        padding: 0 7px;
+                    }
+
+                    button {
+                        margin-right: 15px;
+                        background-color: transparent;
+                        border: none;
+                        &.upvote {
+                            margin-right: 0;
+                        }
+                        &.reply {
+                            color: $primary-fg;
+                        }
+                        &.report {
+                            color: $danger-color;
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
