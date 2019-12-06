@@ -1,4 +1,4 @@
-{% extends "partials/layout" %}
+{% extends "partials/layout.tera" %}
 
 {% block title %}{{anime.name}}{% endblock title %}
 {% block body_class %}anime{% endblock body_class %}

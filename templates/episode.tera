@@ -1,4 +1,4 @@
-{% extends "partials/layout" %} {% block title %}[Ep. 7] Dr Stone{% endblock title %} {% block body_class %}anime-episode{% endblock %} {% block content %}
+{% extends "partials/layout.tera" %} {% block title %}[Ep. 7] Dr Stone{% endblock title %} {% block body_class %}anime-episode{% endblock %} {% block content %}
 <div class="container">
     <h1 class="episode-title"><a href="./"><strong>One Piece</strong></a> » Episodio 1</h1>
 

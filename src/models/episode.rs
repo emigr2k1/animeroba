@@ -34,7 +34,7 @@ impl Episode {
             .select(dsl::all_columns)
             .filter(dsl::anime_id.eq(anime_id))
             .filter(dsl::number.eq(number))
-            .first::<Self>(&**db)?;
+            .first::<Self>(db)?;
         Ok(result)
     }
 
@@ -42,7 +42,7 @@ impl Episode {
         let results = dsl::table
             .select(dsl::all_columns)
             .filter(dsl::anime_id.eq(anime_id))
-            .load::<Self>(&**db)?;
+            .load::<Self>(db)?;
         Ok(results)
     }
 
@@ -50,7 +50,7 @@ impl Episode {
         let result = dsl::table
             .select(diesel::dsl::count(dsl::id))
             .filter(dsl::anime_id.eq(anime_id))
-            .first(&**db)?;
+            .first(db)?;
         Ok(result)
     }
 
@@ -65,7 +65,7 @@ impl Episode {
             .select(dsl::all_columns)
             .order(dsl::id.desc())
             .limit(n.try_into().unwrap_or(24))
-            .load::<Self>(&**db)?;
+            .load::<Self>(db)?;
 
         let mut animes = Vec::with_capacity(n as usize);
         for ep in &latest_eps {
@@ -77,7 +77,7 @@ impl Episode {
                     anime_dsl::cover,
                 ))
                 .filter(anime_dsl::id.eq(ep.anime_id))
-                .first::<(i32, String, String, Option<String>)>(&**db)?;
+                .first::<(i32, String, String, Option<String>)>(db)?;
             animes.push(anime);
         }
 

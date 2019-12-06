@@ -1,23 +1,52 @@
-use rocket::http::Status;
-use rocket_contrib::templates::{tera::Context, Template};
+use actix_web::{error, web, Error, HttpResponse};
+use tera::{Context, Tera};
 
-use crate::db::PostgresDb;
+use crate::db::Pool;
 use crate::models::Anime;
 
-#[get("/anime/<code_name>")]
-pub fn get_anime(db: PostgresDb, code_name: String) -> Result<Template, Status> {
-    let anime = Anime::from_code_name(&db, &code_name).map_err(|_| Status::NotFound)?;
+pub fn get_anime(
+    path: web::Path<(String)>,
+    db: web::Data<Pool>,
+    tmpl: web::Data<Tera>,
+) -> Result<HttpResponse, Error> {
+    let code_name = &path;
+
+    let anime = Anime::from_code_name(
+        &*db.get()
+            .map_err(|_| error::ErrorInternalServerError("Internal error"))?,
+        &code_name,
+    )
+    .map_err(|_| error::ErrorNotFound("Anime not found"))?;
     let num_episodes = anime
-        .count_episodes(&db)
-        .map_err(|_| Status::InternalServerError)?;
+        .count_episodes(
+            &*db.get()
+                .map_err(|_| error::ErrorInternalServerError("Internal error"))?,
+        )
+        .map_err(|_| error::ErrorInternalServerError("Internal error"))?;
+
     let mut context = Context::new();
     context.insert("anime", &anime);
     context.insert("num_episodes", &num_episodes);
     context.insert("genres_str", &anime.genres_str());
-    Ok(Template::render("anime", context))
+
+    let html_res = tmpl
+        .render("anime.tera", &context)
+        .map_err(|_| error::ErrorInternalServerError("Internal error"))?;
+
+    Ok(HttpResponse::Ok().content_type("text/html").body(html_res))
 }
 
-#[get("/anime/<code_name>/<episode_num>")]
-pub fn get_episode(db: PostgresDb, code_name: String, episode_num: u64) -> Result<Template, Status> {
-    Ok(Template::render("episode", Context::new()))
+pub fn get_episode(
+    path: web::Path<(String, u64)>,
+    db: web::Data<Pool>,
+    tmpl: web::Data<Tera>,
+) -> Result<HttpResponse, Error> {
+    let code_name = &path.0;
+    let episode_num = path.1;
+
+    let html_res = tmpl
+        .render("episode.tera", &Context::new())
+        .map_err(|_| error::ErrorInternalServerError("Internal error"))?;
+
+    Ok(HttpResponse::Ok().content_type("text/html").body(html_res))
 }

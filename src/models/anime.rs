@@ -31,14 +31,12 @@ impl Anime {
             .select(animes::all_columns)
             .offset(page * quantity - quantity)
             .limit(quantity)
-            .load::<Anime>(&**db)?;
+            .load::<Anime>(db)?;
         Ok(results)
     }
 
     pub fn from_code_name(db: &PostgresDb, code_name: &str) -> Result<Self, Box<dyn Error>> {
-        Ok(dsl::animes
-            .filter(dsl::code_name.eq(code_name))
-            .first(&**db)?)
+        Ok(dsl::animes.filter(dsl::code_name.eq(code_name)).first(db)?)
     }
 
     pub fn count_episodes(&self, db: &PostgresDb) -> Result<i64, Box<dyn Error>> {

@@ -1,4 +1,4 @@
-{% extends "partials/layout" %}
+{% extends "partials/layout.tera" %}
 
 {% block title %}Inicio{% endblock title %}
 {% block body_class %}index{% endblock body_class %}

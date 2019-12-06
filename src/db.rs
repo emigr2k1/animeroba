@@ -1,8 +1,8 @@
-use diesel::PgConnection;
-use rocket_contrib::{database, databases::mongodb::db::Database};
+use diesel::{
+    pg::PgConnection,
+    r2d2::{self, ConnectionManager, PooledConnection},
+};
 
-#[database("mongo_db")]
-pub struct MongoDb(Database);
+pub type Pool = r2d2::Pool<ConnectionManager<PgConnection>>;
 
-#[database("postgres_db")]
-pub struct PostgresDb(PgConnection);
+pub type PostgresDb = PgConnection;

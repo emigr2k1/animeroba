@@ -1,16 +1,24 @@
-use rocket::http::Status;
-use rocket_contrib::templates::{tera::Context, Template};
+use actix_web::{error, web, Error, HttpResponse};
+use tera::{Context, Tera};
 
-use crate::db::PostgresDb;
+use crate::db::Pool;
 use crate::models::Episode;
 
-#[get("/?<quantity>")]
-pub fn index(db: PostgresDb, quantity: Option<u64>) -> Result<Template, Status> {
-    let quantity = quantity.unwrap_or(24);
-    let latest_eps = Episode::latest_n(&db, quantity).map_err(|_| Status::InternalServerError)?;
+pub fn index(db: web::Data<Pool>, tmpl: web::Data<Tera>) -> Result<HttpResponse, Error> {
+    let quantity = 24;
+    let latest_eps = Episode::latest_n(
+        &*db.get()
+            .map_err(|_| error::ErrorInternalServerError("Internal error"))?,
+        quantity,
+    )
+    .map_err(|_| error::ErrorInternalServerError("Internal error"))?;
 
     let mut ctx = Context::new();
     ctx.insert("latest_eps", &latest_eps);
 
-    Ok(Template::render("index", ctx))
+    let html_res = tmpl
+        .render("index.tera", &ctx)
+        .map_err(|_| error::ErrorInternalServerError("Internal error"))?;
+
+    Ok(HttpResponse::Ok().content_type("text/html").body(html_res))
 }

@@ -21,7 +21,7 @@ impl Server {
         let results = dsl::table
             .select(dsl::all_columns)
             .filter(dsl::episode_id.eq(episode_id))
-            .load::<Self>(&**db)?;
+            .load::<Self>(db)?;
         Ok(results)
     }
 }
