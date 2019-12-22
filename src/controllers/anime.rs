@@ -4,12 +4,12 @@ use tera::{Context, Tera};
 use crate::db::Pool;
 use crate::models::Anime;
 
-pub fn get_anime(
-    path: web::Path<(String)>,
+pub async fn get_anime(
+    path: web::Path<(String,)>,
     db: web::Data<Pool>,
     tmpl: web::Data<Tera>,
 ) -> Result<HttpResponse, Error> {
-    let code_name = &path;
+    let code_name = &path.0;
 
     let anime = Anime::from_code_name(
         &*db.get()
@@ -36,7 +36,7 @@ pub fn get_anime(
     Ok(HttpResponse::Ok().content_type("text/html").body(html_res))
 }
 
-pub fn get_episode(
+pub async fn get_episode(
     path: web::Path<(String, u64)>,
     db: web::Data<Pool>,
     tmpl: web::Data<Tera>,

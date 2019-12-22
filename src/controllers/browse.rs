@@ -11,7 +11,7 @@ pub struct BrowseQuery {
     quantity: Option<i64>,
 }
 
-pub fn browse(
+pub async fn browse(
     web::Query(params): web::Query<BrowseQuery>,
     db: web::Data<Pool>,
     tmpl: web::Data<Tera>,
@@ -25,13 +25,17 @@ pub fn browse(
         page,
         quantity,
     )
-    .map_err(|e| {println!("{}", e); error::ErrorInternalServerError("InternalServerError")})?;
+    .map_err(|e| {
+        println!("{}", e);
+        error::ErrorInternalServerError("InternalServerError")
+    })?;
 
     let mut ctx = Context::new();
     ctx.insert("animes", &animes);
-    let html_res = tmpl
-        .render("browse.tera", &ctx)
-        .map_err(|e| {println!("{}", e); error::ErrorInternalServerError("InternalServerError")})?;
+    let html_res = tmpl.render("browse.tera", &ctx).map_err(|e| {
+        println!("{}", e);
+        error::ErrorInternalServerError("InternalServerError")
+    })?;
 
     Ok(HttpResponse::Ok().content_type("text/html").body(html_res))
 }

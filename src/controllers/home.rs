@@ -4,7 +4,7 @@ use tera::{Context, Tera};
 use crate::db::Pool;
 use crate::models::Episode;
 
-pub fn index(db: web::Data<Pool>, tmpl: web::Data<Tera>) -> Result<HttpResponse, Error> {
+pub async fn index(db: web::Data<Pool>, tmpl: web::Data<Tera>) -> Result<HttpResponse, Error> {
     let quantity = 24;
     let latest_eps = Episode::latest_n(
         &*db.get()

@@ -53,12 +53,12 @@
                 </div>
                 <div class="toolbar">
                     <div class="tools">
-                        <button>Img.</button>
-                        <button><b>N</b></button>
-                        <button><i>C</i></button>
-                        <button><s>T</s></button>
-                        <button><u>S</u></button>
-                        <button>Spo.</button>
+                        <button type="button">Img.</button type="button">
+                        <button type="button"><b>N</b></button type="button">
+                        <button type="button"><i>C</i></button type="button">
+                        <button type="button"><s>T</s></button type="button">
+                        <button type="button"><u>S</u></button type="button">
+                        <button type="button">Spo.</button type="button">
                     </div>
                     <input type="submit" value="Comentar">
                 </div>
