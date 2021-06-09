@@ -4,4 +4,4 @@ address = "127.0.0.1"
 
 [global.databases]
 mongo_db = { url = "mongodb://localhost:27017/animes" }
-postgres_db = { url = "postgres://emigr2k1:Loc4lpass9@localhost/animeroba" }
+postgres_db = { url = "postgres://emi2k01:Loc4lpass9@localhost/animeroba" }

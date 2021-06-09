@@ -34,4 +34,8 @@ table! {
 joinable!(episodes -> animes (anime_id));
 joinable!(video_servers -> episodes (episode_id));
 
-allow_tables_to_appear_in_same_query!(animes, episodes, video_servers,);
+allow_tables_to_appear_in_same_query!(
+    animes,
+    episodes,
+    video_servers,
+);

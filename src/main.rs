@@ -47,8 +47,9 @@ fn main() {
         .unwrap();
 
     HttpServer::new(|| {
-        let diesel_pool = db::Pool::new(ConnectionManager::new(
-            "postgres://emigr2k1:Loc4lpass9@localhost/animeroba",
+        let mut diesel_pool = db::Pool::builder().max_size(1)
+            .build(ConnectionManager::new(
+            "postgres://emi2k01:Loc4lpass9@localhost/animeroba",
         ))
         .expect("Could not create diesel postgres pool");
 
@@ -73,7 +74,7 @@ fn main() {
             )
             .service(actix_files::Files::new("/static", "./static"))
     })
-    .bind("192.168.100.5:8000")
+    .bind("localhost:8001")
     .unwrap()
     .run()
     .unwrap();
