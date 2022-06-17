@@ -10,7 +10,7 @@ edition = "2018"
 rocket = "0.4.2"
 serde_json = "1.0.41"
 dotenv = "0.9.0"
-diesel = { version = "1.0.0", features = ["extras"] }
+diesel = { version = "1.4.6", features = ["extras"] }
 chrono = { version = "0.4", features = ["serde"] }
 num-traits = "0.2"
 num-derive = "0.3"
